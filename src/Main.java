@@ -8,8 +8,8 @@ public class Main {
 
     public static void main(String[] args) {
         int min = 0;
-        int max = 100000;
-        int size = 10;
+        int max = 1000000;
+        int size = 10000;
 
 
         // Test tri à Bulles
