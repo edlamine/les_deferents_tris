@@ -11,21 +11,34 @@ public class TriRapide {
     }
 
     private static int partition(ArrayList<Integer> list, int start, int end) {
-        int pivot = list.get(end);
-        int i = start - 1;
-        for (int j = start; j < end; j++) {
-            if (list.get(j) <= pivot) {
-                i++;
-                int temp = list.get(i);
-                list.set(i, list.get(j));
-                list.set(j, temp);
+        int pivotIndex = (start + end) / 2;
+        int pivotValue = list.get(pivotIndex);
+        permutation(list, pivotIndex, end);
+        int storeIndex = start;
+        for (int i = start; i < end; i++) {
+            if (list.get(i) < pivotValue) {
+                permutation(list, i, storeIndex);
+                storeIndex++;
             }
         }
-        int temp = list.get(i + 1);
-        list.set(i + 1, list.get(end));
-        list.set(end, temp);
-        return i + 1;
+        permutation(list, storeIndex, end);
+        return storeIndex;
     }
+
+    private static void permutation(ArrayList<Integer> list, int i, int j) {
+        int temp = list.get(i);
+        list.set(i, list.get(j));
+        list.set(j, temp);
+    }
+
+}
+/*Notez que le pivot est choisi comme étant l'élément au milieu de la liste.
+Ensuite, la méthode partition parcourt la liste à partir de start jusqu'à end-1,
+en comparant chaque élément à la valeur du pivot, et en plaçant les éléments plus petits
+que le pivot au début de la liste, et les éléments plus grands que le pivot à la fin de la liste.
+Enfin, elle place le pivot à sa position finale, entre les éléments plus petits et les éléments plus grands.
+ */
+
 
     /*public static void triRapide(int[] T, int g, int d) {
         if (g < d) {
@@ -53,5 +66,5 @@ public class TriRapide {
             triRapide(T, a, d);
         }
     }*/
-}
+
 
