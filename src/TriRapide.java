@@ -10,7 +10,7 @@ public class TriRapide {
         }
     }
 
-    private static int partition(ArrayList<Integer> list, int start, int end) {
+    private static int partition(ArrayList<Integer> list, int start, int end) { //la methode qui partage la liste
         int pivotIndex = (start + end) / 2;
         int pivotValue = list.get(pivotIndex);
         permutation(list, pivotIndex, end);
