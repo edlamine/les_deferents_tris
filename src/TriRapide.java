@@ -26,4 +26,32 @@ public class TriRapide {
         list.set(end, temp);
         return i + 1;
     }
+
+    /*public static void triRapide(int[] T, int g, int d) {
+        if (g < d) {
+            //int n = d - g + 1;
+            int a = g;
+            int b = d;
+            int pivot = T[(a + b) / 2];
+
+            while (a <= b) {
+                while (T[a] < pivot) {
+                    a++;
+                }
+                while (T[b] > pivot) {
+                    b--;
+                }
+                if (a <= b) {
+                    int temp = T[a];
+                    T[a] = T[b];
+                    T[b] = temp;
+                    a++;
+                    b--;
+                }
+            }
+            triRapide(T, g, b);
+            triRapide(T, a, d);
+        }
+    }*/
 }
+
